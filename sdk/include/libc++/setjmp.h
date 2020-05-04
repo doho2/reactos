@@ -31,7 +31,11 @@ void longjmp(jmp_buf env, int val);
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <setjmp.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(setjmp.h)
+#endif
 
 #ifdef __cplusplus
 

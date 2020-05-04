@@ -14,7 +14,11 @@
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <stddef.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(stddef.h)
+#endif
 
 #elif !defined(_LIBCPP_STDDEF_H)
 #define _LIBCPP_STDDEF_H
@@ -42,7 +46,11 @@ Types:
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <stddef.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(stddef.h)
+#endif
 
 #ifdef __cplusplus
 

@@ -10,6 +10,18 @@
 #ifndef _LIBCPP_CONFIG
 #define _LIBCPP_CONFIG
 
+//---------------------------------------------------------------------- ReactOS
+// #define _LIBCPP_HAS_INCLUDE_NEXT
+
+#if not defined(_LIBCPP_NATIVE_C_INCLUDE_PATH)
+#    define _LIBCPP_NATIVE_C_INCLUDE_PATH ../crt
+#endif
+
+#define _LIBCPP_MAKE_HEADER(path, header) <path/header>
+#define _LIBCPP_NATIVE_C_HEADER(header) _LIBCPP_MAKE_HEADER(_LIBCPP_NATIVE_C_INCLUDE_PATH,header)
+
+//---------------------------------------------------------------------- ReactOS
+
 #if defined(_MSC_VER) && !defined(__clang__)
 #  if !defined(_LIBCPP_HAS_NO_PRAGMA_SYSTEM_HEADER)
 #    define _LIBCPP_HAS_NO_PRAGMA_SYSTEM_HEADER

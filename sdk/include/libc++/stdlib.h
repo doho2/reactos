@@ -17,7 +17,11 @@
 #undef _LIBCPP_STDLIB_INCLUDE_NEXT
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <stdlib.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(stdlib.h)
+#endif
 
 #elif !defined(_LIBCPP_STDLIB_H)
 #define _LIBCPP_STDLIB_H
@@ -94,7 +98,11 @@ void *aligned_alloc(size_t alignment, size_t size);                       // C11
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <stdlib.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(stdlib.h)
+#endif
 
 #ifdef __cplusplus
 #include <math.h>

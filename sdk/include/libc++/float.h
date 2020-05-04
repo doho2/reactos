@@ -76,7 +76,11 @@ Macros:
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <float.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(float.h)
+#endif
 
 #ifdef __cplusplus
 

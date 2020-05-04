@@ -50,7 +50,11 @@ wctrans_t wctrans(const char* property);
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <wctype.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(wctype.h)
+#endif
 
 #ifdef __cplusplus
 

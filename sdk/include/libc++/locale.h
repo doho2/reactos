@@ -39,6 +39,10 @@ Functions:
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <locale.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(locale.h)
+#endif
 
 #endif  // _LIBCPP_LOCALE_H

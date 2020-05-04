@@ -35,7 +35,11 @@ int toupper(int c);
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <ctype.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(ctype.h)
+#endif
 
 #ifdef __cplusplus
 
