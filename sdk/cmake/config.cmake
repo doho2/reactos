@@ -93,3 +93,6 @@ endif()
 
 set(USE_DUMMY_PSEH FALSE CACHE BOOL
 "Whether to disable PSEH support.")
+
+set(USE_LIBCPP TRUE CACHE BOOL
+"Whether to enable libc++ support.")
