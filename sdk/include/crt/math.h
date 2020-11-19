@@ -296,7 +296,7 @@ _CRT_NONSTDC_DEPRECATE(_yn) _CRTIMP double __cdecl yn(_In_ int x, _In_ double y)
 
 #ifdef __cplusplus
 }
-#ifndef _CMATH_
+#if 0 // ndef _CMATH_
 extern "C++" {
 
 //inline long abs(_In_ long x) { return labs(x); }

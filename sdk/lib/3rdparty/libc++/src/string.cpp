@@ -410,10 +410,15 @@ inline
 wide_printf
 get_swprintf()
 {
+#ifdef __REACTOSx__
+	// TODO: OK?
+    return static_cast<int (__cdecl*)(wchar_t* __restrict, size_t, const wchar_t*__restrict, ...)>(_snwprintf);
+#else
 #ifndef _LIBCPP_MSVCRT
     return swprintf;
 #else
     return static_cast<int (__cdecl*)(wchar_t* __restrict, size_t, const wchar_t*__restrict, ...)>(_snwprintf);
+#endif
 #endif
 }
 

@@ -14,7 +14,8 @@
 // #define _LIBCPP_HAS_INCLUDE_NEXT
 
 #if not defined(_LIBCPP_NATIVE_C_INCLUDE_PATH)
-#    define _LIBCPP_NATIVE_C_INCLUDE_PATH ../crt
+#    define _LIBCPP_NATIVE_C_INCLUDE_PATH ../mingw_inc
+//#    define _LIBCPP_NATIVE_C_INCLUDE_PATH ../crt
 #endif
 
 #define _LIBCPP_MAKE_HEADER(path, header) <path/header>

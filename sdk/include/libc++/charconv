@@ -548,7 +548,11 @@ __from_chars_integral(const char* __first, const char* __last, _Tp& __value,
         [](const char* __p, const char* __last, _Tp& __value,
            int __base) -> from_chars_result {
             using __tl = numeric_limits<_Tp>;
+#ifdef __REACTOSx__
+            auto __digits = __tl::digits; // TODO: / log2f(float(__base));
+#else
             auto __digits = __tl::digits / log2f(float(__base));
+#endif
             _Tp __a = __in_pattern(*__p++, __base).__val, __b = 0;
 
             for (int __i = 1; __p != __last; ++__i, ++__p)

@@ -7,37 +7,38 @@ add_definitions(
     -D__STDC_CONSTANT_MACROS
     # libc++
     -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS
+    #-D_LIBCPP_MSVCRT
     )
 
 list(APPEND SOURCE
-#  src/algorithm.cpp
-#  src/any.cpp
+  src/algorithm.cpp
+  src/any.cpp
 #  src/bind.cpp
-#  src/charconv.cpp
-#  src/chrono.cpp
-#  src/condition_variable.cpp
-#  src/condition_variable_destructor.cpp
+  src/charconv.cpp
+  src/chrono.cpp
+  src/condition_variable.cpp
+  src/condition_variable_destructor.cpp
 #  src/debug.cpp
-#  src/exception.cpp
-#  src/functional.cpp
-#  src/future.cpp
-#  src/hash.cpp
+  src/exception.cpp
+  src/functional.cpp
+  src/future.cpp
+  src/hash.cpp
 #  src/include/apple_availability.h
 #  src/include/atomic_support.h
 #  src/include/config_elast.h
 #  src/include/refstring.h
-#  src/ios.cpp
-#  src/iostream.cpp
-#  src/locale.cpp
-#  src/memory.cpp
+  src/ios.cpp
+  src/iostream.cpp
+  src/locale.cpp
+  src/memory.cpp
 #  src/mutex.cpp
 #  src/mutex_destructor.cpp
-#  src/new.cpp
-#  src/optional.cpp
-#  src/random.cpp
-#  src/regex.cpp
-#  src/shared_mutex.cpp
-#  src/stdexcept.cpp
+  src/new.cpp
+  src/optional.cpp
+  src/random.cpp
+  src/regex.cpp
+  src/shared_mutex.cpp
+  src/stdexcept.cpp
   src/string.cpp
 #  src/strstream.cpp
 #  src/support/runtime/exception_fallback.ipp
@@ -59,10 +60,18 @@ list(APPEND SOURCE
 #  src/typeinfo.cpp
 #  src/utility.cpp
 #  src/valarray.cpp
-#  src/variant.cpp
+  src/variant.cpp
   src/vector.cpp
   )
 
 add_library(libc++
     ${SOURCE}
+    )
+
+set_target_properties(libc++ PROPERTIES INCLUDE_DIRECTORIES "")
+target_include_directories(libc++ PRIVATE
+    ${REACTOS_SOURCE_DIR}/sdk/include/libc++
+    ${REACTOS_SOURCE_DIR}/sdk/include/mingw_inc
+    #${REACTOS_SOURCE_DIR}/sdk/include/crt
+    ${REACTOS_SOURCE_DIR}/sdk/include/psdk
     )
