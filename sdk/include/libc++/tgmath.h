@@ -29,7 +29,11 @@
 
 #else  // __cplusplus
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <tgmath.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(tgmath.h)
+#endif
 
 #endif  // __cplusplus
 

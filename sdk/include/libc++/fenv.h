@@ -56,7 +56,11 @@ int feupdateenv(const fenv_t* envp);
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <fenv.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(fenv.h)
+#endif
 
 #ifdef __cplusplus
 

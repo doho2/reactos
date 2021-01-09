@@ -28,7 +28,18 @@ Macros:
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <errno.h>
+#else
+#  if defined(errno)
+#    pragma push_macro("errno")
+#    undef errno
+#    include _LIBCPP_NATIVE_C_HEADER(errno.h)
+#    pragma pop_macro("errno")
+#  else
+#    include _LIBCPP_NATIVE_C_HEADER(errno.h)
+#  endif
+#endif
 
 #ifdef __cplusplus
 

@@ -29,7 +29,11 @@
 
 #else  // __cplusplus
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <complex.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(complex.h)
+#endif
 
 #endif  // __cplusplus
 

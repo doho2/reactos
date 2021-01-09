@@ -13,7 +13,11 @@
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <stdio.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(stdio.h)
+#endif
 
 #elif !defined(_LIBCPP_STDIO_H)
 #define _LIBCPP_STDIO_H
@@ -104,7 +108,11 @@ void perror(const char* s);
 #pragma GCC system_header
 #endif
 
+#if defined(_LIBCPP_HAS_INCLUDE_NEXT)
 #include_next <stdio.h>
+#else
+#include _LIBCPP_NATIVE_C_HEADER(stdio.h)
+#endif
 
 #ifdef __cplusplus
 
